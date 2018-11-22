@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class movement : MonoBehaviour {
+    public GameObject missle;
     NavMeshAgent agent;
     // Use this for initialization
     void Start()
@@ -13,7 +14,7 @@ public class movement : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
         {
             RaycastHit hit;
 
@@ -28,6 +29,7 @@ public class movement : MonoBehaviour {
 
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
             {
+                Instantiate(missle, transform.position, transform.rotation);
             }
         }
     }
