@@ -2,26 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class enemy : MonoBehaviour {
-    public int Health;
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+public class Enemy : MonoBehaviour {
+    public int Health = 100;
+    Transform player;
+    //PlayerHealth playerHealth;
+    //EnemyHealth enemyHealth;
+    UnityEngine.AI.NavMeshAgent nav;
+
+
+    void Awake()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        //playerHealth = player.GetComponent <PlayerHealth> ();
+        //enemyHealth = GetComponent <EnemyHealth> ();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+    }
+
+
+    void Update()
+    {
+        //if(enemyHealth.currentHealth > 0 && playerHealth.currentHealth > 0)
+        //{
+        nav.SetDestination(player.position);
+        //}
+        //else
+        //{
+        //    nav.enabled = false;
+        //}
 		if(Health <= 0)
         {
             Destroy(gameObject);
         }
 	}
-    void OnCollisionEnter(Collision col)
+    void OnColliderEnter(Collider col)
     {
-        Debug.Log("enter");
         if (col.gameObject.name == "missle")
         {
-            Destroy(col.gameObject);
             Health -= 10;
         }
     }

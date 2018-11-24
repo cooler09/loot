@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class movement : MonoBehaviour {
+public class Movement : MonoBehaviour {
     public GameObject missle;
     NavMeshAgent agent;
     // Use this for initialization
@@ -14,7 +14,7 @@ public class movement : MonoBehaviour {
 
     void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1))
         {
             RaycastHit hit;
 

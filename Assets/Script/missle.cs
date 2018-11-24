@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class missle : MonoBehaviour {
+public class Missle : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
